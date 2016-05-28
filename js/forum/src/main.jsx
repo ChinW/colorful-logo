@@ -29,7 +29,7 @@ app.initializers.add('chin-colorful-logo', function() {
     
     function changeColor(color){
         var doc = document.getElementById("colorful-logo").getSVGDocument();
-        console.log("in changeColor");
+        // console.log("in changeColor");
         if(doc){
             // console.log("in doc")
           var rect = doc.querySelectorAll("path"); // suppose our image contains a <rect>

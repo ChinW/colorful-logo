@@ -41,7 +41,7 @@ System.register('chin/colorful-logo/main', ['flarum/components/TextEditor', 'fla
 
                 function changeColor(color) {
                     var doc = document.getElementById("colorful-logo").getSVGDocument();
-                    console.log("in changeColor");
+                    // console.log("in changeColor");
                     if (doc) {
                         // console.log("in doc")
                         var rect = doc.querySelectorAll("path"); // suppose our image contains a <rect>
