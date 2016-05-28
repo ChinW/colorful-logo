@@ -8,12 +8,12 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "Colorful Logo"
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Flarum\\ColorfulLog\\": "src/"
+            "title": "Colorful Logo",
+            "icon": {
+                "name": "dot-circle-o",
+                "backgroundColor": "#FFD600",
+                "color": "#6200EA"
+            }
         }
     }
 }
