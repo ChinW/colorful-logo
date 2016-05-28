@@ -1,5 +1,10 @@
 ## colorful-logo
+
 A coloful logo by using SVG for Flarum
+
+## Composer
+
+`composer require chin/flarum-colorful-logo`
 
 ### Config
 
