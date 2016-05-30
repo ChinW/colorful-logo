@@ -23,7 +23,7 @@ app.initializers.add('chin/colorful-logo', () => {
 
     });
 
-    extend(DiscussionHero.prototype, 'view', view => {
+    extend(DiscussionHero.prototype, 'view', function (view) {
         const tags = sortTags(this.props.discussion.tags());
 
         if (tags && tags.length) {
@@ -34,7 +34,7 @@ app.initializers.add('chin/colorful-logo', () => {
         }
     });
 
-    extend(IndexPage.prototype, "hero", () => {
+    extend(IndexPage.prototype, "hero", function () {
         const tag = this.currentTag();
         if (tag) {
             changeColor(tag.color())
@@ -45,7 +45,17 @@ app.initializers.add('chin/colorful-logo', () => {
         }
     });
 
-    extend(IndexPage.prototype, "sidebarItems", () => {
+    extend(IndexPage.prototype, "init", function () {
+        const tag = this.currentTag();
+        if (tag) {
+            changeColor(tag.color())
+        }else{
+            // debugger;
+            changeColor(null)
+        }
+    });
+
+    extend(IndexPage.prototype, "sidebarItems", function () {
         const tag = this.currentTag();
         if (tag) {
             changeColor(tag.color())
@@ -64,11 +74,11 @@ app.initializers.add('chin/colorful-logo', () => {
 
             if (color && rect.length) {
                 for (let i = 0; i < rect.length; i++) {
-                    rect[i].setAttribute("style", "fill:"+color+" !important");
+                    if (rect[i]) rect[i].setAttribute("style", "fill:"+color+" !important");
                 }
             } else {
                 for (let i = 0; i < rect.length; i++) {
-                    rect[i].setAttribute("style", "");
+                    if (rect[i]) rect[i].setAttribute("style", "");
                 }
             }
         }

@@ -138,7 +138,7 @@ System.register('chin/colorful-logo/main', ['flarum/components/IndexPage', 'flar
                 });
 
                 extend(DiscussionHero.prototype, 'view', function (view) {
-                    var tags = sortTags(undefined.props.discussion.tags());
+                    var tags = sortTags(this.props.discussion.tags());
 
                     if (tags && tags.length) {
                         var color = tags[0].color();
@@ -149,7 +149,7 @@ System.register('chin/colorful-logo/main', ['flarum/components/IndexPage', 'flar
                 });
 
                 extend(IndexPage.prototype, "hero", function () {
-                    var tag = undefined.currentTag();
+                    var tag = this.currentTag();
                     if (tag) {
                         changeColor(tag.color());
                         // return TagHero.component({tag});
@@ -159,8 +159,18 @@ System.register('chin/colorful-logo/main', ['flarum/components/IndexPage', 'flar
                         }
                 });
 
+                extend(IndexPage.prototype, "init", function () {
+                    var tag = this.currentTag();
+                    if (tag) {
+                        changeColor(tag.color());
+                    } else {
+                        // debugger;
+                        changeColor(null);
+                    }
+                });
+
                 extend(IndexPage.prototype, "sidebarItems", function () {
-                    var tag = undefined.currentTag();
+                    var tag = this.currentTag();
                     if (tag) {
                         changeColor(tag.color());
                     } else {
@@ -178,11 +188,11 @@ System.register('chin/colorful-logo/main', ['flarum/components/IndexPage', 'flar
 
                         if (color && rect.length) {
                             for (var i = 0; i < rect.length; i++) {
-                                rect[i].setAttribute("style", "fill:" + color + " !important");
+                                if (rect[i]) rect[i].setAttribute("style", "fill:" + color + " !important");
                             }
                         } else {
                             for (var i = 0; i < rect.length; i++) {
-                                rect[i].setAttribute("style", "");
+                                if (rect[i]) rect[i].setAttribute("style", "");
                             }
                         }
                     }

@@ -15,7 +15,8 @@ class LoadSettingsFromDatabase {
     protected $packagePrefix = 'chin.colorful-logo.';
     // those are the fields we need to get from the database
     protected $fieldsToGet = array(
-        'imageUrl'
+        'imageUrl',
+        'imageUrl_development'
     );
 
     /**
