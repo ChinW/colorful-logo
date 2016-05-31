@@ -1,23 +1,31 @@
 <?php
 
+/*
+ * Copyright (c) 2016. Chin.
+ *
+ * https://consiiii.me
+ *
+ * For the full copyright and license information, please view the license.md
+ * file that was distributed with this source code
+ */
+
 namespace Chin\ColorfulLogo\Listeners;
 
+use Flarum\Api\Serializer\ForumSerializer;
+use Flarum\Event\PrepareApiAttributes;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Contracts\Events\Dispatcher;
-use Flarum\Event\PrepareApiAttributes;
-use Flarum\Api\Serializer\ForumSerializer;
-use Flarum\Event\PrepareUnserializedSettings;
 
-class LoadSettingsFromDatabase {
-
+class LoadSettingsFromDatabase
+{
     protected $settings;
     // this is the prefix we use in the settings table in the database
     protected $packagePrefix = 'chin.colorful-logo.';
     // those are the fields we need to get from the database
-    protected $fieldsToGet = array(
+    protected $fieldsToGet = [
         'imageUrl',
-        'imageUrl_development'
-    );
+        'imageUrl_development',
+    ];
 
     /**
      * Gets the settings variable. Called on Object creation.
@@ -49,9 +57,8 @@ class LoadSettingsFromDatabase {
     {
         if ($event->isSerializer(ForumSerializer::class)) {
             foreach ($this->fieldsToGet as $field) {
-                $event->attributes[$this->packagePrefix . $field] = $this->settings->get($this->packagePrefix . $field);
+                $event->attributes[$this->packagePrefix.$field] = $this->settings->get($this->packagePrefix.$field);
             }
         }
     }
-
 }
