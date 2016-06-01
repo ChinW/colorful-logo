@@ -1,19 +1,24 @@
 {
-    "name": "chin/flarum-colorful-logo",
-    "description": "A coloful logo by using SVG!",
-    "type": "flarum-extension",
-    "keywords": ["logo", "flarum", "ext", "consiiii"],
-    "require": {
-        "flarum/core": "^0.1.0-beta.3"
-    },
-    "extra": {
-        "flarum-extension": {
-            "title": "Colorful Logo",
-            "icon": {
-                "name": "dot-circle-o",
-                "backgroundColor": "#FFD600",
-                "color": "#6200EA"
-            }
-        }
+  "name": "chin/flarum-colorful-logo",
+  "description": "A coloful logo by using SVG!",
+  "type": "flarum-extension",
+  "keywords": ["logo", "flarum", "ext", "consiiii"],
+  "require": {
+    "flarum/core": "^0.1.0-beta.3"
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Colorful Logo",
+      "icon": {
+        "name": "dot-circle-o",
+        "backgroundColor": "#FFD600",
+        "color": "#6200EA"
+      }
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "Chin\\ColorfulLogo\\": "src/"
+    }
+  }
 }
