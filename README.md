@@ -1,3 +1,5 @@
+[![StyleCI](https://styleci.io/repos/59874530/shield)](https://styleci.io/repos/59874530)
+
 ## Colorful Logo
 
 A colorful logo by using SVG for Flarum
